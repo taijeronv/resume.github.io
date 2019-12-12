@@ -1,398 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>2019.12.09_sims_trainer.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
-	font-size: 14px;
-	padding: 0 12px;
-	line-height: 22px;
-	word-wrap: break-word;
-}
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	color: #4080D0;
-	text-decoration: none;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-h1 code,
-h2 code,
-h3 code,
-h4 code,
-h5 code,
-h6 code {
-	font-size: inherit;
-	line-height: auto;
-}
-
-a:hover {
-	color: #4080D0;
-	text-decoration: underline;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left: 5px solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 14px;
-	line-height: 19px;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-.mac code {
-	font-size: 12px;
-	line-height: 18px;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-/** Theming */
-
-.vscode-light,
-.vscode-light pre code {
-	color: rgb(30, 30, 30);
-}
-
-.vscode-dark,
-.vscode-dark pre code {
-	color: #DDD;
-}
-
-.vscode-high-contrast,
-.vscode-high-contrast pre code {
-	color: white;
-}
-
-.vscode-light code {
-	color: #A31515;
-}
-
-.vscode-dark code {
-	color: #D7BA7D;
-}
-
-.vscode-light pre:not(.hljs),
-.vscode-light code > div {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre:not(.hljs),
-.vscode-dark code > div {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre:not(.hljs),
-.vscode-high-contrast code > div {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-.vscode-light blockquote,
-.vscode-dark blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.vscode-high-contrast blockquote {
-	background: transparent;
-	border-color: #fff;
-}
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Profile</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
 
 </style>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="profile">Profile</h1>
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="profile">Profile</h1>
 <p>Proven professional seeking to leverage over 30 years of experience in military training, education, and operations.</p>
 <h1 id="skills">Skills</h1>
 <ul>
@@ -411,60 +42,74 @@ blockquote {
 </ul>
 <h1 id="simulations-and-gaming">Simulations and Gaming</h1>
 <h2 id="senior-instructional-developer-ukrainian-ground-forces-academy-odessa-alion-science-and-technology-august-2013-august-2014">Senior Instructional Developer, Ukrainian Ground Forces Academy-Odessa, Alion Science and Technology, August 2013-August 2014</h2>
-<p>Design, Develop, Implement, and Evaluate training products to train Ukrainian cadets on NATO Compatible small unit tactics, tactical decision, and problem solving. Train Ukrainian instructors to accomplish the implementation of training.  Field and train using the Follow Me and battle Command simulations.
-	<li>Taught tactical decision making to 2nd, 3rd, and 4th year cadets </li>
-<li>Developed instructional material for the February 2014 Captains Advanced Course </li>
-<li>Developed training scenarios for the 2nd year cadet program</li>  
-•	Managed and taught the 1st through 4th year NATO-based program of instruction
-•	Advised MG Gulayk on how to integrate our program of instructon into the academic year 2015 curriculum</p>
-<h2 id="united-states-military-academy-warfighting-simulation-center-manager-august-2004-%E2%80%93-june-2010">United States Military Academy, Warfighting Simulation Center Manager August 2004 – June 2010</h2>
-<p>Serves as the WARCEN Manager in the Department of Military Instruction. Integrated the use of simulations for three military science courses, one college major (Defense Strategic Studies), and two leadership courses for the academic department Behavioral Science and Leadership.
-•	Taught tactical decision making and problem solving as part of the Department of Military Instruction
-•	Integrated Virtual Battle Space 2 into Cadet Basic Training 2007
-•	Provided curriculum support to the 1st year leadership course Behavioral Science and Leadership department
-•	Provided curriculum support and integration to the Defense Strategic Studies college major</p>
-<h2 id="command-and-general-staff-college-simulations-specialist-november-2001-%E2%80%93-august-2004">Command and General Staff College, Simulations Specialist, November 2001 – August 2004</h2>
-<p>Original member of the Digital Leader Development (DLDC) Simulations Team.  Responsible for all digital system training and education, in addition to scenario design and exercise execution of Brigade through Division level operations.
-•	Integrated the use of low-overhead simulations into CGSOC/ILE curriculum
-•	Created the scenario, order of battle, digital maps, and events list for the division level GAAT exercise.  To be used with the Decisive Action simulation.
-•	Provided IPR briefings to Senior Retired Officers in support of the Prairie Warrior Capstone Exercise</p>
+<p>Design, Develop, Implement, and Evaluate training products to train Ukrainian cadets on NATO Compatible small unit tactics, tactical decision, and problem solving. Train Ukrainian instructors to accomplish the implementation of training.  Field and train using the Follow Me and battle Command simulations.</p>
+<ul>
+<li>Taught tactical decision making to 2nd, 3rd, and 4th year cadets</li>
+<li>Developed instructional material for the February 2014 Captains Advanced Course</li>
+<li>Developed training scenarios for the 2nd year cadet program</li>
+<li>Managed and taught the 1st through 4th year NATO-based program of instruction</li>
+</ul>
+<p>Advised MG Gulayk on how to integrate our program of instructon into the academic year 2015 curriculum</p>
+<h2 id="united-states-military-academy-warfighting-simulation-center-manager-august-2004--june-2010">United States Military Academy, Warfighting Simulation Center Manager August 2004 – June 2010</h2>
+<p>Serves as the WARCEN Manager in the Department of Military Instruction. Integrated the use of simulations for three military science courses, one college major (Defense Strategic Studies), and two leadership courses for the academic department Behavioral Science and Leadership.</p>
+<ul>
+<li>Taught tactical decision making and problem solving as part of the Department of Military Instruction</li>
+<li>Integrated Virtual Battle Space 2 into Cadet Basic Training 2007</li>
+<li>Provided curriculum support to the 1st year leadership course Behavioral Science and Leadership department</li>
+<li>Provided curriculum support and integration to the Defense Strategic Studies college major</li>
+</ul>
+<h2 id="command-and-general-staff-college-simulations-specialist-november-2001--august-2004">Command and General Staff College, Simulations Specialist, November 2001 – August 2004</h2>
+<p>Original member of the Digital Leader Development (DLDC) Simulations Team.  Responsible for all digital system training and education, in addition to scenario design and exercise execution of Brigade through Division level operations.</p>
+<ul>
+<li>Integrated the use of low-overhead simulations into CGSOC/ILE curriculum</li>
+<li>Created the scenario, order of battle, digital maps, and events list for the division level GAAT exercise.  To be used with the Decisive Action simulation.</li>
+<li>Provided IPR briefings to Senior Retired Officers in support of the Prairie Warrior Capstone Exercise</li>
+</ul>
 <h1 id="international-training">International Training</h1>
-<h2 id="dyncorp-intl-embedded-police-mentor-afghanistan-june-2011-%E2%80%93-july-2013">DynCorp Intl, Embedded Police Mentor (Afghanistan), June 2011 – July 2013</h2>
-<p>Responsible for training elements of the Afghan National Police in basic knowledge of law enforcement and human rights and mentoring police officers and leaders to instill a culture of service to the people of Afghanistan.
-•	Trained, mentored, and advised three Afghan Uniform Police Checkpoints totaling 5 officers, 15 NCOs, and 50 enlisted patrolmen
-•	Trained, mentored, and advised one Afghan Uniform Police Substation totaling 2 officers, 6 NCOs, 28 enlisted patrolmen
-•	Trained and mentored a special unit of 10 AUP tasked with augmenting coalition forces and securing FOB Salerno
-•	Instructed a number of courses focused on small unit tactics, key leader engagements, community policing, first aid, marksmanship, patrolling, battle drills, logistics, and mission planning.</p>
+<h2 id="dyncorp-intl-embedded-police-mentor-afghanistan-june-2011--july-2013">DynCorp Intl, Embedded Police Mentor (Afghanistan), June 2011 – July 2013</h2>
+<p>Responsible for training elements of the Afghan National Police in basic knowledge of law enforcement and human rights and mentoring police officers and leaders to instill a culture of service to the people of Afghanistan.</p>
+<ul>
+<li>Trained, mentored, and advised three Afghan Uniform Police Checkpoints totaling 5 officers, 15 NCOs, and 50 enlisted patrolmen</li>
+<li>Trained, mentored, and advised one Afghan Uniform Police Substation totaling 2 officers, 6 NCOs, 28 enlisted patrolmen</li>
+<li>Trained and mentored a special unit of 10 AUP tasked with augmenting coalition forces and securing FOB Salerno</li>
+<li>Instructed a number of courses focused on small unit tactics, key leader engagements, community policing, first aid, marksmanship, patrolling, battle drills, logistics, and mission planning.</li>
+</ul>
 <h1 id="military-experience">Military Experience</h1>
-<h2 id="battalion-s2-nco-us-army-aug-1999-%E2%80%93-dec-2001">Battalion S2 NCO, US Army, Aug 1999 – Dec 2001</h2>
-<p>•	Primary staff NCO for Intel and security
-•	Conducted battery and battalion level anti-terrorism training for a 500 man MLRS battalion
-•	Evaluated unit force protection readiness and security</p>
-<h2 id="platoon-sergeant-multiple-launch-rocket-crewman-us-army-jun-1995v%E2%80%93-dec-2001">Platoon Sergeant Multiple Launch Rocket Crewman US Army, Jun 1995v– Dec 2001</h2>
-<p>•	Trained and mentored 1 Officer, 8 NCOs, and 13 Enlisted soldiers
-•	Developed a platoon training plan for individual, section, and platoon collective tasks
-•	Wrote the Artillery Raid task and evaluation for 6-37 FA (MLRS)</p>
+<h2 id="battalion-s2-nco-us-army-aug-1999--dec-2001">Battalion S2 NCO, US Army, Aug 1999 – Dec 2001</h2>
+<ul>
+<li>Primary staff NCO for Intel and security</li>
+<li>Conducted battery and battalion level anti-terrorism training for a 500 man MLRS battalion</li>
+<li>Evaluated unit force protection readiness and security</li>
+</ul>
+<h2 id="platoon-sergeant-multiple-launch-rocket-crewman-us-army-jun-1995v-dec-2001">Platoon Sergeant Multiple Launch Rocket Crewman US Army, Jun 1995v– Dec 2001</h2>
+<ul>
+<li>Trained and mentored 1 Officer, 8 NCOs, and 13 Enlisted soldiers</li>
+<li>Developed a platoon training plan for individual, section, and platoon collective tasks</li>
+<li>Wrote the Artillery Raid task and evaluation for 6-37 FA (MLRS)</li>
+</ul>
 <h1 id="education">Education</h1>
-<p>•	Guam Community College, Technical Electronics – 1981
-•	Advanced NCO Course, Multiple Launch Rocket System, - 1997
-•	Basic NCO Course, Multiple Launch Rocket System – 1992
-•	Primary NCO Course Combat Arms – 1983</p>
+<ul>
+<li>Guam Community College, Technical Electronics – 1981</li>
+<li>Advanced NCO Course, Multiple Launch Rocket System, - 1997</li>
+<li>Basic NCO Course, Multiple Launch Rocket System – 1992</li>
+<li>Primary NCO Course Combat Arms – 1983</li>
+</ul>
 <h1 id="references">References</h1>
 <h2 id="donald-e-vandergriff">Donald E. Vandergriff</h2>
-<p>Senior Consultant Arrikai, LLC.
-G-3/5/7 Operations Branch Training and Education Command (TECOM) United States Marine Corps Office
-Tel: (703) 784-0422
-Mob: (571) 344-0886
+<p>Senior Consultant Arrikai, LLC.<br>
+G-3/5/7 Operations Branch Training and Education Command (TECOM) United States Marine Corps Office<br>
+Tel: (703) 784-0422<br>
+Mob: (571) 344-0886<br>
 Donald.vandergriff@usmc.mil</p>
 <h2 id="victor-castro">Victor Castro</h2>
-<p>Deputy Director, West Point Simulation Center
-Tel: 845.938.7960
+<p>Deputy Director, West Point Simulation Center<br>
+Tel: 845.938.7960<br>
 Victor.castro@westpoint.edu</p>
 <h2 id="james-lunsford">James Lunsford</h2>
-<p>Decisive Point
-President
-Office: (816)-584-2882
+<p>Decisive Point<br>
+President<br>
+Office: (816)-584-2882<br>
 jim@decisive-point.com</p>
 
-</body>
-</html>
+    </body>
+    </html>
